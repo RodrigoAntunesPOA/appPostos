@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "390888649611",
+    "firebase_url": "https://apppostos-f3d53.firebaseio.com",
+    "project_id": "apppostos-f3d53",
+    "storage_bucket": "apppostos-f3d53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390888649611:android:5fd7fda2f8b49918",
+        "android_client_info": {
+          "package_name": "com.example.rodrigoantunes.abasteceaqui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390888649611-f6oklu76bpabhr73qo3vs2tdk0el64dd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANfh74GQlEY12lMqcpgER8MMP4wjk0wvY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

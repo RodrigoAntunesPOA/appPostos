@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:descendantFocusability="blocksDescendants"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgPosto"
+                android:layout_width="80dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="2pt"
+                app:srcCompat="@mipmap/logo_br" />
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="@android:style/Widget.Material.RatingBar.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="247dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_weight="0.90">
+
+            <TextView
+                android:id="@+id/textNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3pt"
+                android:layout_marginRight="3pt"
+                android:layout_marginTop="3pt"
+                android:text="Posto BR Antunes"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textEndereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1pt"
+                android:layout_marginLeft="3pt"
+                android:layout_marginRight="3pt"
+                android:text="Av. Joao de Deus,123 - Aberta dos Morros - PORTO ALEGRE/RS "
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textFuncionamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1pt"
+                android:layout_marginLeft="3pt"
+                android:layout_marginRight="3pt"
+                android:text="Das 8h as 23h"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textDistancia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1pt"
+                android:layout_marginLeft="3pt"
+                android:layout_marginRight="3pt"
+                android:layout_weight="0.95"
+                android:text="A 8Km"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1pt"
+                android:layout_marginLeft="3pt"
+                android:layout_marginRight="3pt"
+                android:text="Avaliações"
+                android:textAlignment="textStart"
+                android:textColor="@color/link"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/imgFavorito"
+                android:layout_width="26dp"
+                android:layout_height="29dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="3pt"
+                android:contentDescription="Favorito"
+                app:srcCompat="@mipmap/coracao" />
+
+            <ImageView
+                android:id="@+id/imgMapa"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginBottom="1pt"
+                android:contentDescription="mapa"
+                app:srcCompat="@mipmap/maps" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

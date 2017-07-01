@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical"
+    tools:context="com.example.rodrigoantunes.abasteceaqui.ActivityRedePostos">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4pt"
+        android:layout_marginRight="2pt"
+        android:layout_marginTop="3pt"
+        android:scrollbars="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/imgVerTodos"
+            android:layout_width="61dp"
+            android:layout_height="32dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginTop="2pt"
+            android:contentDescription="Ver no mapa"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            android:onClick="abrirMapa"
+            app:srcCompat="@mipmap/maps" />
+
+        <TextView
+            android:id="@+id/textTodos"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="3pt"
+            android:layout_marginTop="2pt"
+            android:layout_weight="1.03"
+            android:autoLink="all"
+            android:onClick="abrirMapa"
+            android:text="Clique para visualizar todos no mapa"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
