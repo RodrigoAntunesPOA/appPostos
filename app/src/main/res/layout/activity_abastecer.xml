@@ -10,28 +10,125 @@
     tools:context="com.example.rodrigoantunes.abasteceaqui.AbastecerActivity">
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Litros"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/textView8"
         android:layout_alignLeft="@+id/textView8"
-        android:layout_alignStart="@+id/textView8" />
+        android:layout_alignStart="@+id/textView8"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="10dp"
+        android:text="Preço"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textProduto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editValor"
+        android:layout_alignEnd="@+id/editValor"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignRight="@+id/editValor"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_marginBottom="37dp"
+        android:text="PRODUTO"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textPreco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editValor"
+        android:layout_alignLeft="@+id/editValor"
+        android:layout_alignRight="@+id/editValor"
+        android:layout_alignStart="@+id/editValor"
+        android:layout_below="@+id/editValor"
+        android:text="1,999"
+        android:textAlignment="textEnd"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textVolume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignEnd="@+id/editValor"
+        android:layout_alignRight="@+id/editValor"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4"
+        android:text="0,000"
+        android:textAlignment="textEnd"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="14dp"
+        android:text="Litros"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="143dp"
-        android:layout_marginStart="143dp"
+        android:layout_marginTop="104dp"
         android:text="R$"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="117dp" />
+        android:layout_toLeftOf="@+id/btnConfirmar"
+        android:layout_toStartOf="@+id/btnConfirmar"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp" />
+
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="12dp"
+        android:onClick="finalizar"
+        android:text="Salvar" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textVolume"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:onClick="abastecer"
+        android:text="Abastecer" />
+
+    <EditText
+        android:id="@+id/editValor"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0.00"
+        android:textAlignment="textEnd"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

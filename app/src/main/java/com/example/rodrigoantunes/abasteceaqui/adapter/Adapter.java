@@ -17,6 +17,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rodrigoantunes.abasteceaqui.AbastecerActivity;
 import com.example.rodrigoantunes.abasteceaqui.ActivityRedePostos;
 import com.example.rodrigoantunes.abasteceaqui.DetPostoActivity;
 import com.example.rodrigoantunes.abasteceaqui.MapsActivity;
@@ -304,7 +305,14 @@ public class Adapter extends
             imgAbastecer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(ctx, "Funcionalidade não implementada!", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(ctx, "Funcionalidade não implementada!", Toast.LENGTH_LONG).show();
+
+                    //Chama tela de abastecer
+                    Intent it = new Intent(ctx, AbastecerActivity.class);
+                    it.putExtra("PrecoUnitario", mDatasetPro.get(position).valor);
+                    it.putExtra("Combustivel", mDatasetPro.get(position).toString());
+
+                    ctx.startActivity(it);
                 }
             });
 

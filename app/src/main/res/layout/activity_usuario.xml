@@ -42,12 +42,20 @@
         android:layout_marginLeft="3pt"
         android:text="UF" />
 
-    <EditText
-        android:id="@+id/textUF"
+    <Spinner
+        android:id="@+id/spinner_UF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="3pt"
         android:layout_marginRight="3pt" />
+
+    <EditText
+        android:id="@+id/textUF"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="3pt"
+        android:layout_marginRight="3pt"
+        android:visibility="invisible" />
 
 
     <TextView
@@ -57,12 +65,20 @@
         android:layout_marginLeft="3pt"
         android:text="Cidade" />
 
-    <EditText
-        android:id="@+id/textCidade"
+    <Spinner
+        android:id="@+id/spinner_Cidade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="3pt"
         android:layout_marginRight="3pt" />
+
+    <EditText
+        android:id="@+id/textCidade"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="3pt"
+        android:layout_marginRight="3pt"
+        android:visibility="invisible" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,8 +90,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3pt"
-            android:text="Salvar"
-            android:onClick="salvarUsuario"/>
+            android:onClick="salvarUsuario"
+            android:text="Salvar" />
 
         <Button
             android:id="@+id/botaoCancelar"

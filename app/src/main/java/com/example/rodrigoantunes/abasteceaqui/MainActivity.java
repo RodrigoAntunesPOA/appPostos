@@ -58,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirAbastecer(View view){
-        Toast.makeText(this, "Funcionalidade não implementada!", Toast.LENGTH_LONG).show();
+
+        Intent it = new Intent(this, ActivityRedePostos.class);
+        it.putExtra("favorito", true);
+        startActivity(it);
+
+        //Toast.makeText(this, "Funcionalidade não implementada!", Toast.LENGTH_LONG).show();
     }
 
     public void abrirServicos(View view){
