@@ -122,6 +122,7 @@ public class ActivityRedePostos extends AppCompatActivity {
 
                 //Valida se o posto deve ser considerado
                 for (Posto posto : copiaContainer.postos){
+                    Log.e("POSTORede", String.valueOf(posto.codigo));
                     Log.e("POSTORede", posto.nome);
                     Log.e("POSTORede", posto.latitude.toString());
                     Log.e("POSTORede", posto.longitude.toString());
@@ -180,7 +181,7 @@ public class ActivityRedePostos extends AppCompatActivity {
                     container.postos=listaSelecao;
                 }
 
-                mAdapter = new Adapter(ActivityRedePostos.this, container.postos,1);
+                mAdapter = new Adapter(ActivityRedePostos.this, container.postos,1,0);
 
                 mRecyclerView.setAdapter(mAdapter);
 
@@ -270,7 +271,7 @@ public class ActivityRedePostos extends AppCompatActivity {
 
                 }
 
-                mAdapter = new Adapter(ActivityRedePostos.this, container.postos,1);
+                mAdapter = new Adapter(ActivityRedePostos.this, container.postos,1,0);
 
                 mRecyclerView.setAdapter(mAdapter);
 

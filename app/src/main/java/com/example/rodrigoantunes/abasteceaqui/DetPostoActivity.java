@@ -104,7 +104,9 @@ public class DetPostoActivity extends AppCompatActivity {
                 Log.e("AdapterProd", produto.toString());
             }
 
-            mAdapterPosto = new Adapter(this, posto.produtos, 2);
+            Log.e("AntesAdapterProd", String.valueOf(posto.codigo));
+
+            mAdapterPosto = new Adapter(this, posto.produtos, 2, posto.codigo);
             mRecyclerViewPosto.setAdapter(mAdapterPosto);
 
 
@@ -113,7 +115,7 @@ public class DetPostoActivity extends AppCompatActivity {
                 Log.e("AdapterServ", servico.toString());
             }
 
-            mAdapaterServ = new Adapter(this, posto.servicos, 3);
+            mAdapaterServ = new Adapter(this, posto.servicos, 3,posto.codigo);
             mRecyclerViewServ.setAdapter(mAdapaterServ);
 
         }

@@ -38,6 +38,8 @@ public class Adapter extends
     private List<Posto> mDataset;
     private List<Produto> mDatasetPro;
     private List<Servico> mDatasetSer;
+    private int idPostoSelecionado;
+
 
     private Context ctx;
     private int intTipoLista;
@@ -61,7 +63,7 @@ public class Adapter extends
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public Adapter(Context ctx, List myDataset, int intTipoLista) {
+    public Adapter(Context ctx, List myDataset, int intTipoLista, int idPostoSelecionado) {
 
         this.intTipoLista=intTipoLista;
         this.ctx = ctx;
@@ -70,7 +72,18 @@ public class Adapter extends
         if (intTipoLista==2) {this.mDatasetPro = myDataset;}
         if (intTipoLista==3) {this.mDatasetSer = myDataset;}
 
+        this.idPostoSelecionado=idPostoSelecionado;
+        Log.e("IDPosto", String.valueOf(this.idPostoSelecionado));
+
     }
+
+    //public Adapter(Context ctx, List myDataset, int intTipoLista, int idPostoSelecionado) {
+    //    this(ctx, myDataset, intTipoLista);
+    //    this.idPostoSelecionado=idPostoSelecionado;
+    //
+    //    Log.e("Selecao", String.valueOf(idPostoSelecionado));
+    //}
+
 
     // Create new views (invoked by the layout manager)
     @Override
@@ -200,7 +213,6 @@ public class Adapter extends
 
 
 
-
         //if (mDataset.get(position) instanceof Posto) {
 
             final List<Posto> listaSelecao;
@@ -220,6 +232,8 @@ public class Adapter extends
                     container.postos = listaSelecao;
 
                     intent.putExtra("postos", container);
+
+                    idPostoSelecionado=mDataset.get(position).codigo;
 
                     ctx.startActivity(intent);
                 }
@@ -305,12 +319,14 @@ public class Adapter extends
             imgAbastecer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Toast.makeText(ctx, "Funcionalidade não implementada!", Toast.LENGTH_LONG).show();
 
                     //Chama tela de abastecer
                     Intent it = new Intent(ctx, AbastecerActivity.class);
                     it.putExtra("PrecoUnitario", mDatasetPro.get(position).valor);
                     it.putExtra("Combustivel", mDatasetPro.get(position).toString());
+                    it.putExtra("PostoID", idPostoSelecionado);
+
+                    Log.e("Posto selecionado", String.valueOf(idPostoSelecionado));
 
                     ctx.startActivity(it);
                 }

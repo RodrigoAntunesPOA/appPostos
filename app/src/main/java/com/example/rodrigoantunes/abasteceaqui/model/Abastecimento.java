@@ -8,6 +8,7 @@ public class Abastecimento {
     public String combustivel;
     public float preco;
     public float litragem;
-    public float total;
+    public double total;
     public float odometro;
+    public int postoID;
 }

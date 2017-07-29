@@ -87,33 +87,48 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/btnConfirmar"
-        android:layout_toStartOf="@+id/btnConfirmar"
+        android:layout_toLeftOf="@+id/btnCancelar"
+        android:layout_toStartOf="@+id/btnCancelar"
         android:layout_marginRight="14dp"
         android:layout_marginEnd="14dp" />
 
     <Button
-        android:id="@+id/btnConfirmar"
+        android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_below="@+id/button2"
-        android:layout_marginTop="12dp"
-        android:onClick="finalizar"
-        android:text="Salvar" />
+        android:layout_alignEnd="@+id/btnSalvar"
+        android:layout_alignLeft="@+id/btnSalvar"
+        android:layout_alignRight="@+id/btnSalvar"
+        android:layout_alignStart="@+id/btnSalvar"
+        android:layout_below="@+id/btnSalvar"
+        android:layout_marginTop="15dp"
+        android:onClick="cancelar"
+        android:text="Cancelar"
+        android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textVolume"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
+        android:layout_alignEnd="@+id/btnAbastecer"
+        android:layout_alignLeft="@+id/btnAbastecer"
+        android:layout_alignRight="@+id/btnAbastecer"
+        android:layout_alignStart="@+id/btnAbastecer"
+        android:layout_below="@+id/btnAbastecer"
+        android:layout_marginTop="12dp"
+        android:onClick="salvarabastecimento"
+        android:text="Salvar"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnAbastecer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
         android:onClick="abastecer"
-        android:text="Abastecer" />
+        android:text="Abastecer"
+        android:layout_below="@+id/textVolume"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/editValor"

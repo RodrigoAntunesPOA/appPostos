@@ -1,19 +1,15 @@
 package com.example.rodrigoantunes.abasteceaqui;
 
-import android.graphics.Color;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.rodrigoantunes.abasteceaqui.R;
 import com.example.rodrigoantunes.abasteceaqui.core.Ciclodevida;
 import com.example.rodrigoantunes.abasteceaqui.model.Usuario;
 import com.google.firebase.database.DataSnapshot;
@@ -28,9 +24,11 @@ public class UsuarioActivity extends AppCompatActivity
 {
 
     private EditText textNome, textUF, textCidade;
-    private Spinner spinnerUF, spinnerCidadade;
+    private Spinner spinnerUF, spinnerCidade;
     private List<String> UF = new ArrayList<>();
     private List<String> Cidade = new ArrayList<>();
+
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +36,9 @@ public class UsuarioActivity extends AppCompatActivity
         setContentView(R.layout.activity_usuario);
 
         //Carrega UF
+        spinnerUF = (Spinner) findViewById(R.id.spinner_UF);
         carregarUFs();
-
-        /*
-        if (spinnerUF!= null)
-        {
-            spinnerUF.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    //
-                    Log.e ("tagclickspinner", "Clicou");
-
-                }
-            });
-        }
-        */
-
-
+        carregarCidades();
 
     }
 
@@ -73,9 +56,7 @@ public class UsuarioActivity extends AppCompatActivity
 
                 int i;
 
-                Log.e("usuario", "Entrou na rotina");
-
-                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+                usuario = dataSnapshot.getValue(Usuario.class);
 
                 textNome = (EditText) findViewById(R.id.textNome);
                 textUF = (EditText) findViewById(R.id.textUF);
@@ -89,24 +70,9 @@ public class UsuarioActivity extends AppCompatActivity
                     if ( UF.get(i).equals(usuario.UF))
                     {
                         spinnerUF.setSelection(i);
-                        carregarCidades();
-
                         break;
-
                     }
                 }
-
-
-                for (i = 0; i<= Cidade.size(); i++) {
-                    if (Cidade.get(i).equals(usuario.cidade))
-                    {
-                        spinnerCidadade.setSelection(i);
-
-                        break;
-
-                    }
-                }
-
 
             }
 
@@ -127,7 +93,7 @@ public class UsuarioActivity extends AppCompatActivity
         usuario.cidade = textCidade.getText().toString();
         usuario.UF = textUF.getText().toString();
 
-        usuario.cidade=spinnerCidadade.getSelectedItem().toString();
+        usuario.cidade=spinnerCidade.getSelectedItem().toString();
         usuario.UF=spinnerUF.getSelectedItem().toString();
 
         Ciclodevida.myRef.child("usuario_123@gmail/dados").setValue(
@@ -156,7 +122,6 @@ public class UsuarioActivity extends AppCompatActivity
 
     public void carregarUFs () {
 
-
         UF.add("");
         UF.add("PR");
         UF.add("RS");
@@ -164,7 +129,7 @@ public class UsuarioActivity extends AppCompatActivity
 
         //Identifica o Spinner no layout
 
-        spinnerUF = (Spinner) findViewById(R.id.spinner_UF);
+        //spinnerUF = (Spinner) findViewById(R.id.spinner_UF);
 
         //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, UF);
@@ -173,73 +138,79 @@ public class UsuarioActivity extends AppCompatActivity
         spinnerUF.setAdapter(spinnerArrayAdapter);
         spinnerUF.setSelection(0);
 
-        /*
-        spinnerUF.setOnClickListener(new Spinner.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                carregarCidades();
+        spinnerUF.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    Log.e("click spinner","vai carregar cidade");
+                    carregarCidades();
+                }
 
-            }
-        })
-        */
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
-        ;
+                }
+        });
 
+    };
 
-    }
-
-    public void posicionarCombo (View v){
-        carregarCidades();
-    }
 
     public void carregarCidades () {
+
+        Log.e("CARREGACIDADE", "ENTROU");
+
 
         Cidade.clear();
         Cidade.add("");
 
-        if (!spinnerUF.getSelectedItem().equals("") )
-        {
+        if (!spinnerUF.getSelectedItem().equals("")) {
             //Carrega as cidades conforme UF
-            if (spinnerUF.getSelectedItem().equals("RS"))
-            {
+            if (spinnerUF.getSelectedItem().equals("RS")) {
                 Cidade.add("PORTO ALEGRE");
                 Cidade.add("CANOAS");
 
-            };
+            }
+            ;
 
-            if (spinnerUF.getSelectedItem().equals("SC"))
-            {
+            if (spinnerUF.getSelectedItem().equals("SC")) {
                 Cidade.add("BLUMENAU");
                 Cidade.add("JOINVILLE");
 
-            };
+            }
+            ;
 
-            if (spinnerUF.getSelectedItem().equals("PR"))
-            {
+            if (spinnerUF.getSelectedItem().equals("PR")) {
                 Cidade.add("CURITIBA");
                 Cidade.add("PATO BRANCO");
 
-            };
-
+            }
+            ;
         }
-        else
-            spinnerCidadade.setSelection(0);
-
-        ;
 
         //Identifica o Spinner no layout
-
-        spinnerCidadade = (Spinner) findViewById(R.id.spinner_Cidade);
+        spinnerCidade = (Spinner) findViewById(R.id.spinner_Cidade);
 
         //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, Cidade);
         ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCidadade.setAdapter(spinnerArrayAdapter);
-        spinnerCidadade.setSelection(0);
+        spinnerCidade.setAdapter(spinnerArrayAdapter);
+        spinnerCidade.setSelection(0);
 
-    }
+        if (usuario != null) {
+            for (int j = 0; j < Cidade.size(); j++) {
 
+                Log.e("CidadeTotal", String.valueOf(Cidade.size()));
+
+                if (Cidade.get(j).equals(usuario.cidade)) {
+                    spinnerCidade.setSelection(j);
+
+                    break;
+
+                }
+            }
+        }
+
+    };
 
 }
