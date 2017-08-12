@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.example.rodrigoantunes.abasteceaqui">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -47,6 +46,8 @@
         <activity android:name=".UsuarioActivity" />
         <activity android:name=".VeiculoActivity" />
         <activity android:name=".AbastecerActivity" />
+        <activity android:name=".ServicosActivity" />
+
     </application>
 
 </manifest>

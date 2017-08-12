@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    tools:context="com.example.rodrigoantunes.abasteceaqui.ServicosActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:layout_marginTop="3pt"
+        android:text="Tipo do Serviço"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/optRevisao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3pt"
+                android:layout_marginTop="3pt"
+                android:checked="true"
+                android:text="Revisão" />
+
+            <RadioButton
+                android:id="@+id/optTroca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10pt"
+                android:layout_marginTop="3pt"
+                android:text="Troca" />
+
+
+        </LinearLayout>
+
+
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.23"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3pt"
+                android:layout_marginTop="6pt"
+                android:text="Data do Serviço"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editDataServico"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3pt"
+                android:inputType="date" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.77"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3pt"
+                android:layout_marginTop="6pt"
+                android:text="Odômetro"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editOdometro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3pt"
+                android:inputType="number" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:layout_marginTop="3pt"
+        android:text="Marque os serviços efetuados abaixo:"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/chkOleoMotor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:layout_marginTop="3pt"
+        android:text="Óleo do Motor" />
+
+    <CheckBox
+        android:id="@+id/chkCalibragem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Calibragem" />
+
+
+    <CheckBox
+        android:id="@+id/chkPalhetas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Palhetas" />
+
+
+    <CheckBox
+        android:id="@+id/chkFiltrodeAr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Filtro de Ar" />
+
+    <CheckBox
+        android:id="@+id/chkFiltroOleo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Filtro de Óleo" />
+
+    <CheckBox
+        android:id="@+id/chkFiltroCombustivel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Filtro de Combustível" />
+
+    <CheckBox
+        android:id="@+id/chkAguaRadiador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Água radiador" />
+
+    <CheckBox
+        android:id="@+id/chkBateria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Bateria" />
+
+    <CheckBox
+        android:id="@+id/chkGasolinaPartida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Gasolina de partida" />
+
+
+    <CheckBox
+        android:id="@+id/chkFLuidoFreio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:text="Fluído de freio" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3pt"
+            android:onClick="salvarServico"
+            android:text="Salvar" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3pt"
+            android:onClick="sairServico"
+            android:text="Sair" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

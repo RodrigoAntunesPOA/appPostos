@@ -30,6 +30,8 @@ public class AbastecerActivity extends AppCompatActivity {
     TextView textLitros, textPreco, textProduto;
     String combustivel;
     int iValor=1;
+    boolean booAbastecendo;
+    boolean boocancelarAbastecimento;
 
 
     @Override
@@ -56,9 +58,11 @@ public class AbastecerActivity extends AppCompatActivity {
         //Captura o valor informado
 
         valor=0;
+        iValor=0;
 
         editValor=(EditText) findViewById(R.id.editValor);
         textLitros=(TextView) findViewById(R.id.textVolume);
+
 
         if (!editValor.getText().toString().equals(""))
            valor= Double.parseDouble(editValor.getText().toString());
@@ -70,7 +74,10 @@ public class AbastecerActivity extends AppCompatActivity {
         {
             //volume = (valor / preco);
 
-            //textLitros.setText(String.format("%.3f", volume));
+            //textLitros.setText(String.format("%.3f", 0));
+
+            booAbastecendo=true;
+            boocancelarAbastecimento=false;
 
             final Timer timer = new Timer();
 
@@ -80,8 +87,20 @@ public class AbastecerActivity extends AppCompatActivity {
 
                     movimentaBomba(iValor);
 
-                    if (iValor >= (valor * 100))
+                    if ((iValor >= (valor * 100)) || boocancelarAbastecimento )
                     {
+                        if (boocancelarAbastecimento)
+                        {
+                            //Limpa os campos
+                            zerar();
+
+                        }
+                        else
+                            msgFinalizado();
+
+                        booAbastecendo=false;
+                        boocancelarAbastecimento=false;
+
                         timer.cancel();
                         volume = Float.parseFloat(""+ valor)/preco;
                     }
@@ -108,6 +127,40 @@ public class AbastecerActivity extends AppCompatActivity {
                 textLitros.setText(String.format("%.3f", (iAbastecendo/100)/preco));
 
                 iValor++;
+            }
+        });
+
+        return true;
+    }
+
+    public boolean msgFinalizado(){
+
+        textLitros.post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(AbastecerActivity.this, "Abastecimento finalizado!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        return true;
+    }
+
+
+    public boolean zerar(){
+
+        textLitros.post(new Runnable() {
+            @Override
+            public void run() {
+
+                textLitros.setText(String.format("%.3f", 0.00).replace(",","."));
+            }
+        });
+
+        editValor.post(new Runnable() {
+            @Override
+            public void run() {
+
+                editValor.setText(String.format("%.2f", 0.00).replace(",","."));
             }
         });
 
@@ -155,7 +208,12 @@ public class AbastecerActivity extends AppCompatActivity {
 
     public void cancelar(View view)
     {
-        finish();
+        if (booAbastecendo)
+        {
+            boocancelarAbastecimento=true;
+        }
+        else
+            finish();
 
     }
 

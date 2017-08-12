@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.rodrigoantunes.abasteceaqui.model.RegistroServico;
+
 public class MainActivity extends AppCompatActivity {
 
     static  int MY_REQUEST_CODE = 79;
@@ -67,7 +69,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirServicos(View view){
-        Toast.makeText(this, "Funcionalidade não implementada!", Toast.LENGTH_LONG).show();
+
+        Intent it = new Intent(this, ServicosActivity.class);
+        startActivity(it);
+
+        //Toast.makeText(this, "Funcionalidade não implementada!", Toast.LENGTH_LONG).show();
     }
 
     @Override
